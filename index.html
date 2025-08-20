@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد اليماني للعقيق اليماني - معرض المنتجات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #f9f7f1;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, #2c0e0a, #5a1d16);
+            color: #f1d6ad;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #c89b5e;
+            margin-left: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #f1d6ad;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .contact-info a {
+            color: #f1d6ad;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-info a:hover {
+            color: #c89b5e;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 14, 10, 0.85), rgba(44, 14, 10, 0.85)), 
+                        url('https://images.unsplash.com/photo-1543857778-c4a1a569e7bd?q=80&w=1000') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1d6ad;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #5a1d16;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #c89b5e;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #c89b5e;
+            color: #2c0e0a;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            color: #5a1d16;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            color: #2c0e0a;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        /* Offers Section */
+        .offers-section {
+            background: #f5f2ea;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .offer-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .offer-title {
+            color: #5a1d16;
+            margin-bottom: 10px;
+        }
+        
+        .offer-discount {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        /* Store Info */
+        .store-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .info-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: #c89b5e;
+            margin-bottom: 15px;
+        }
+        
+        .info-card h3 {
+            color: #5a1d16;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c0e0a;
+            color: #f1d6ad;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: #f1d6ad;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #c89b5e;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(200, 155, 94, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #5a1d16;
+        }
+        
+        /* Admin Link */
+        .admin-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #5a1d16;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: background 0.3s;
+        }
+        
+        .admin-link:hover {
+            background: #2c0e0a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Access Link -->
+    <a href="ahmed.html" class="admin-link">لوحة التحكم</a>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/60" alt="شعار أحمد اليماني">
+                <h1>أحمد اليماني للعقيق اليماني</h1>
+            </div>
+            
+            <div class="contact-info">
+                <a href="tel:779168887">
+                    <i class="fas fa-phone"></i>
+                    <span>779168887</span>
+                </a>
+                <a href="https://wa.me/967775157392" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>967775157392</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>مرحباً بكم في معرض العقيق اليماني الأصيل</h2>
+        <p>اكتشفوا أجمل تشكيلة من العقيق اليماني الأصلي، مختارة بعناية لتلبية أذواقكم وتعكس تراثنا اليماني الأصيل</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Products Section -->
+        <h2 class="section-title">منتجاتنا</h2>
+        <div id="productsContainer" class="products-grid">
+            <div class="loading">جاري تحميل المنتجات...</div>
+        </div>
+
+        <!-- Offers Section -->
+        <h2 class="section-title">العروض الخاصة</h2>
+        <div class="offers-section">
+            <div id="offersContainer" class="offers-grid">
+                <div class="loading">جاري تحميل العروض...</div>
+            </div>
+        </div>
+
+        <!-- Store Info Section -->
+        <h2 class="section-title">معلومات المتجر</h2>
+        <div id="storeInfo" class="store-info">
+            <div class="loading">جاري تحميل معلومات المتجر...</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © أحمد اليماني للعقيق اليماني 2023</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // وظيفة لتحميل البيانات من localStorage
+        function loadData() {
+            // تحميل المنتجات
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productsContainer = document.getElementById('productsContainer');
+            
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<div class="loading">لا توجد منتجات متاحة حالياً</div>';
+            } else {
+                productsContainer.innerHTML = '';
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                            ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">${product.price} ريال يمني</div>
+                        </div>
+                    `;
+                    
+                    productsContainer.appendChild(productCard);
+                });
+            }
+            
+            // تحميل العروض
+            const offers = JSON.parse(localStorage.getItem('offers')) || [];
+            const offersContainer = document.getElementById('offersContainer');
+            
+            if (offers.length === 0) {
+                offersContainer.innerHTML = '<div class="loading">لا توجد عروض خاصة حالياً</div>';
+            } else {
+                offersContainer.innerHTML = '';
+                offers.forEach(offer => {
+                    const offerCard = document.createElement('div');
+                    offerCard.className = 'offer-card';
+                    
+                    offerCard.innerHTML = `
+                        <h3 class="offer-title">${offer.title}</h3>
+                        <div class="offer-discount">خصم ${offer.discount}%</div>
+                        <p>${offer.description}</p>
+                        <p>لمدة ${offer.days} أيام</p>
+                    `;
+                    
+                    offersContainer.appendChild(offerCard);
+                });
+            }
+            
+            // تحميل معلومات المتجر
+            const storeInfo = JSON.parse(localStorage.getItem('storeInfo')) || {};
+            const storeInfoContainer = document.getElementById('storeInfo');
+            
+            if (Object.keys(storeInfo).length === 0) {
+                storeInfoContainer.innerHTML = '<div class="loading">لا توجد معلومات عن المتجر</div>';
+            } else {
+                storeInfoContainer.innerHTML = `
+                    <div class="info-card">
+                        <i class="fas fa-store"></i>
+                        <h3>اسم المتجر</h3>
+                        <p>${storeInfo.name || 'أحمد اليماني للعقيق اليماني'}</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>العنوان</h3>
+                        <p>${storeInfo.address || 'صنعاء، دارس، بجانب فندق ابراج المطار'}</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>اتصل بنا</h3>
+                        <p>${storeInfo.phone || '779168887'}</p>
+                        <p>${storeInfo.whatsapp ? `واتساب: ${storeInfo.whatsapp}` : ''}</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>عن المتجر</h3>
+                        <p>${storeInfo.description || 'نقدم لكم أجود أنواع العقيق اليماني الأصيل منذ عام 1995'}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // تحميل البيانات عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', loadData);
+        
+        // إذا لم تكن هناك بيانات، نقوم بتحميل بعض البيانات الافتراضية للعرض
+        if (!localStorage.getItem('products')) {
+            const defaultProducts = [
+                {
+                    id: '1',
+                    name: 'العقيق الدموي النادر',
+                    description: 'قطعة مميزة من العقيق الدموي اليماني الأصيل، تتميز بلونها الأحمر القاني النادر مع نقاوة عالية وتشكيلات طبيعية فريدة.',
+                    price: '1,850',
+                    badge: 'الأكثر مبيعاً',
+                    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1000',
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                },
+                {
+                    id: '2',
+                    name: 'العقيق المصور الفريد',
+                    description: 'عقيق مصور يمني نادر يحمل تشكيلات طبيعية تشبه المناظر الطبيعية. هذه القطعة الفنية الفريدة تجمع بين جمال الطبيعة وإبداع الخالق.',
+                    price: '3,200',
+                    badge: 'تحفة نادرة',
+                    image: 'https://images.unsplash.com/photo-1543857778-c4a1a569e7bd?q=80&w=1000',
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                },
+                {
+                    id: '3',
+                    name: 'عقيق يماني أصفر',
+                    description: 'قطعة جميلة من العقيق اليماني الأصفر النقي، تتميز بلونها الذهبي الجذاب ونقاوة عالية.',
+                    price: '2,100',
+                    badge: 'جديد المعرض',
+                    image: 'https://images.unsplash.com/photo-1599643478517-a313f52effd3?q=80&w=1000',
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                }
+            ];
+            
+            localStorage.setItem('products', JSON.stringify(defaultProducts));
+        }
+        
+        if (!localStorage.getItem('offers')) {
+            const defaultOffers = [
+                {
+                    id: 1,
+                    title: 'عرض الموسم',
+                    description: 'خصم خاص على تشكيلة العقيق الدموي لفترة محدودة',
+                    discount: 15,
+                    days: 10,
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            
+            localStorage.setItem('offers', JSON.stringify(defaultOffers));
+        }
+        
+        if (!localStorage.getItem('storeInfo')) {
+            const defaultStoreInfo = {
+                name: 'أحمد اليماني للعقيق اليماني',
+                description: 'نقدم لكم أجود أنواع العقيق اليماني الأصيل منذ عام 1995. كل قطعة في متجرنا تم اختيارها بعناية فائقة لتلبي أعلى معايير الجودة والأصالة.',
+                address: 'صنعاء، دارس، بجانب فندق ابراج المطار',
+                phone: '779168887',
+                email: 'info@ahmedalyamani.com',
+                whatsapp: '967775157392'
+            };
+            
+            localStorage.setItem('storeInfo', JSON.stringify(defaultStoreInfo));
+        }
+    </script>
+</body>
+</html>
